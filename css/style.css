@@ -1,0 +1,29 @@
+		body{
+			background-image: url(http://orig00.deviantart.net/4eff/f/2012/364/8/3/macintosh_lion_osx_background_by_rohynrajesh-d5po4dn.jpg);
+			background-size: cover;
+		}
+		h1{
+			font-size: 2em;
+			text-align: center;
+			color: white!important;
+		}
+		h1, h2, h3, h4, span, strong, .titulo{
+			font-family: 'Baloo Thambi', cursive;
+		}
+		p, ul, li, td, tr{
+			font-family: 'Abel', sans-serif;
+		}
+		.titulo{
+			font-size: 1em;
+		}
+		.container{
+			width: 450px;
+			margin: 0 auto;
+		}
+		.concluido{
+			text-decoration: line-through;
+				color: #a3a3a3;
+		}
+		.italico{
+			font-style: italic;
+		}

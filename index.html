@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html ng-app="todoApp">
+<head>
+	<title>TODO - APP</title>
+	<script src="angular-1.6.0/angular.js"></script>
+	<script src="app.js"></script>
+	<script src="controllers/mainCtrl.js"></script>
+	<script src="services/todosApi.js"></script>
+	<script src="services/diasApi.js"></script>
+	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link href="https://fonts.googleapis.com/css?family=Abel|Baloo+Thambi" rel="stylesheet">
+	<link href="css/style.css" rel="stylesheet">
+
+</head>
+<body ng-controller="mainCtrl">
+	<div class="container panel-body">
+
+	<div class="panel panel-primary">
+	  <div class="panel-heading">
+	  		<h1>{{app}}</h1> 
+	  </div>
+	  <div class="panel-body">
+		<div class="input-group">
+		  <span class="input-group-addon" id="basic-addon1">Busca</span>
+		  <input type="text" class="form-control" placeholder="Digite o termo aqui" ng-model="busca" aria-describedby="basic-addon1">
+		</div>
+
+		<table class="table table-striped">
+			<tr>
+				<th></th>
+				<th class="titulo text-primary">A fazer</th>
+			</tr>
+			<tr ng-class="{'concluido italico':todo.concluida}" ng-repeat="todo in todos | filter:busca">
+				<td><input type="checkbox" ng-model="todo.concluida"></td>
+				<td >{{todo.afazer}}</td>
+			</tr>
+		</table>
+	<!-- 	É válido : {{formTodos.todo.$valid}}<br>
+		É inválido : {{formTodos.todo.$invalid}}<br> -->
+		<form name="formTodos">
+			<input type="text" ng-model="tarefas.afazer" ng-required="true" name="todo" class="form-control" placeholder="Tarefa" ><br>
+			<select name="" ng-model="tarefas.dia" class="form-control" ng-required="true" ng-options="dias.nome as dias.nome group by dias.semana for dias in diasdasemana">
+			<option value="">Selecione um dia</option>
+			</select>
+			<br>
+
+			<div class="btn-group btn-group-justified" role="group" aria-label="...">
+			  <div class="btn-group" role="group">
+				<input type="submit"  ng-disabled="!desabilitar(todos)" class="btn btn-danger btn-lg" ng-click="excluirTarefa(todos)" value="Limpar">
+			  </div>
+			  <div class="btn-group" role="group">
+				<input type="submit" ng-disabled="formTodos.$invalid" ng-click="novaTarefa(tarefas)" value="Salvar" class="btn btn-success btn-lg">
+			  </div>
+			 </div>
+		</form>
+	</div>
+	<div class="panel-footer panel-primary text-center"><small>Desenvolvido por Denis Piaia com as aulas maravilhosas de Bob</small></div>
+
+	  </div>
+	</div>
+
+<script type="text/javascript">
+	console.log("Mensagem do Desenvolvedor: Segura o Tchan, amarra o tchan, segura o tchan tchan tchan tchan tchan");
+	console.log("Pau que nasce torto nunca se indireita");
+</script>
+
+</body>
+</html>
